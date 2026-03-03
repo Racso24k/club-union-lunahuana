@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDSC Unión | Lunahuaná</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="assets/logo.jpg" alt="Escudo Unión" class="nav-logo">
+        <div class="brand-text">
+            <span class="brand-name">C.D.S.C. UNIÓN</span>
+            <span class="since">DESDE 1937</span>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#plantilla">Equipo</a></li>
+        <li><a href="#galeria">Recuerdos</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#directiva">Directiva</a></li>
+    </ul>
+    <a href="#donaciones" class="btn-nav">Hacerme Socio</a>
+</nav>
+
+<header id="inicio" class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <span class="tag-season">FUNDADO EN 1937</span>
+            <h1>CLUB DEPORTIVO SOCIAL Y CULTURAL UNIÓN</h1>
+            <p>La historia viva de Lunahuaná. 87 años de gloria, pasión y fútbol.</p>
+            <div class="hero-btns">
+                <button class="btn-primary">VER EQUIPO 2026</button>
+                <button class="btn-outline">NUESTRA HISTORIA</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="match-widget">
+    <div class="match-container">
+        <div class="team home">
+            <img src="assets/logo.jpg" alt="U" class="team-logo">
+            <span>C.D.S.C. Unión</span>
+        </div>
+        <div class="match-info">
+            <span class="league">LIGA DISTRITAL LUNAHUANÁ</span>
+            <div class="score-board"><span class="vs">VS</span></div>
+            <span class="date"><i class="far fa-calendar-alt"></i> Dom 28 Feb - 3:30 PM</span>
+        </div>
+        <div class="team away">
+            <div class="rival-placeholder"><i class="fas fa-shield-alt"></i></div>
+            <span>Sport Anexo</span>
+        </div>
+    </div>
+</section>
+
+<section id="plantilla" class="section-pad">
+    <div class="section-header">
+        <span class="subtitle">ONCE GUERREROS</span>
+        <h2>PLANTILLA 2026</h2>
+        <div class="line-gold"></div>
+    </div>
+    <div class="filters-container">
+        <button class="filter-btn active" onclick="filtrarJugadores('todos')">Todos</button>
+        <button class="filter-btn" onclick="filtrarJugadores('arquero')">Porteros</button>
+        <button class="filter-btn" onclick="filtrarJugadores('defensa')">Defensas</button>
+        <button class="filter-btn" onclick="filtrarJugadores('volante')">Volantes</button>
+        <button class="filter-btn" onclick="filtrarJugadores('delantero')">Delanteros</button>
+    </div>
+    <div class="grid-container" id="contenedor-jugadores"></div>
+</section>
+
+<section id="galeria" class="section-pad bg-dark" style="background-color: #111; color: white;">
+    <div class="section-header">
+        <span class="subtitle">NUESTRO LEGADO</span>
+        <h2 style="color: var(--dorado);">FOTOS DEL RECUERDO</h2>
+        <p style="color: #ccc">Equipos que hicieron historia en cancha de tierra y grass.</p>
+    </div>
+    <div class="grid-container" id="contenedor-galeria"></div>
+</section>
+
+<section id="historia" class="history-section">
+    <div class="history-grid">
+        <div class="history-content">
+            <span class="subtitle">NUESTRAS RAÍCES</span>
+            <h2>87 AÑOS DE GLORIA Y TRADICIÓN</h2>
+            <div class="line-gold" style="margin: 0 0 30px 0;"></div>
+            <div class="history-block">
+                <h3><i class="fas fa-certificate" style="color:var(--dorado)"></i> La Fundación (1937)</h3>
+                <p>Nacido en 1937 en el corazón de Lunahuaná. Un grupo de vecinos visionarios decidió crear una institución que no solo fomentara el deporte, sino que uniera a la comunidad.</p>
+            </div>
+            <div class="history-block" style="margin-top: 25px;">
+                <h3><i class="fas fa-church" style="color:var(--dorado)"></i> Bajo el Manto de la Patrona</h3>
+                <p>La identidad de la 'U' es inseparable de nuestra fe. Desde nuestros inicios, el club se encomendó a <strong>Santa Rosa de Lima</strong>, nuestra guía espiritual.</p>
+            </div>
+            <div class="history-block" style="margin-top: 25px;">
+                <h3><i class="fas fa-futbol" style="color:var(--dorado)"></i> El Presente</h3>
+                <p>Hoy, el C.D.S.C. Unión sigue siendo protagonista de la Liga Distrital, honrando el legado de quienes forjaron nuestra historia en canchas de tierra.</p>
+            </div>
+        </div>
+        <div class="history-img">
+            <div class="escudo-antiguo-container">
+                <img src="assets/escudo-antiguo.png" alt="Escudo 1937" class="img-antigua">
+                <span class="caption">Escudo Fundacional 1937</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="directiva" class="section-pad bg-crema">
+    <div class="section-header">
+        <h2>JUNTA DIRECTIVA 2026</h2>
+        <p>Liderazgo y compromiso para seguir creciendo.</p>
+    </div>
+    <div class="grid-directiva" id="contenedor-directiva"></div>
+</section>
+
+<footer class="footer-barca" id="donaciones">
+
+    <div class="footer-socials">
+        <h3>Sigue a la 'U' en redes</h3>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-links-container">
+        <div class="footer-column">
+            <h4>El Club</h4>
+            <ul>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#directiva">Directiva</a></li>
+                <li><a href="#">Estatutos</a></li>
+                <li><a href="#">Transparencia</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Equipos</h4>
+            <ul>
+                <li><a href="#plantilla">Primera División</a></li>
+                <li><a href="#">Categoría Máster</a></li>
+                <li><a href="#">Menores</a></li>
+                <li><a href="#">Fútbol Femenino</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Socios y Fans</h4>
+            <ul>
+                <li><a href="#donaciones">Hazte Socio</a></li>
+                <li><a href="#">Tienda Oficial (Pronto)</a></li>
+                <li><a href="#galeria">Galería Histórica</a></li>
+                <li><a href="#">Noticias</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="#">Lunahuaná, Cañete</a></li>
+                <li><a href="#">contacto@clubunion.com</a></li>
+                <li><a href="#">Trabaja con nosotros</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-logo-area">
+            <img src="assets/logo.jpg" alt="Logo" class="footer-logo">
+            <span class="footer-text-brand">C.D.S.C. UNIÓN</span>
+        </div>
+        <div class="footer-legal">
+            <p>© Copyright CDSC Unión 2026 | Desarrollado por Racso24k </p>
+            <p style="margin-top: 5px;">
+                <a href="#" style="color: #777;">Privacidad</a> |
+                <a href="#" style="color: #777;">Cookies</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

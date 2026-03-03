@@ -1,0 +1,338 @@
+/* --- VARIABLES --- */
+:root {
+    --guinda: #7B1113;
+    --guinda-oscuro: #4a0a0b;
+    --crema: #F5F0E1;
+    --blanco: #ffffff;
+    --dorado: #D4AF37;
+    --negro: #111111;
+    --gris-footer: #999999;
+    --azul-barca-bg: #1a1a1a; /* El mismo color de tu footer */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* --- CORRECCIÓN FINAL DE FONDO Y REBOTE --- */
+html {
+    scroll-behavior: smooth;
+    /* 1. Esto evita el "rebote" elástico en Mac y Móviles */
+    overscroll-behavior-y: none;
+
+    /* 2. Si por alguna razón rebota abajo, que el fondo sea oscuro como el footer */
+    background-color: var(--azul-barca-bg);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Mantenemos el crema para el contenido central */
+    background-color: var(--crema);
+    color: var(--negro);
+    line-height: 1.6;
+    /* Asegura que el cuerpo ocupe al menos toda la pantalla */
+    min-height: 100vh;
+}
+
+/* Esto sigue igual para el ancla del menú */
+section, header, footer {
+    scroll-margin-top: 100px;
+}
+
+h1, h2, h3, .brand-name { font-family: 'Cinzel', serif; }
+ul { list-style: none; }
+a { text-decoration: none; }
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: var(--guinda);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--dorado);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo-container { display: flex; align-items: center; gap: 15px; }
+
+.nav-logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--dorado);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+.since {
+    font-size: 1.12rem; /* AUMENTADO: Antes era 0.8rem. Ahora se verá mucho más grande */
+    font-weight: 600;  /* Extra negrita */
+    letter-spacing: 2px; /* Espaciado para que se lea mejor de lejos */
+    margin-top: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Sombra para contraste */
+}
+
+.brand-name { color: var(--dorado); font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
+
+.nav-links { display: flex; gap: 25px; }
+.nav-links a { color: var(--crema); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+.nav-links a:hover { color: var(--dorado); }
+
+.btn-nav {
+    background: var(--dorado);
+    color: var(--guinda);
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* --- HERO --- */
+.hero {
+    height: 90vh;
+    /* Asegúrate de tener la imagen portada.jpg en assets */
+    background: url('../assets/portada.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    background: linear-gradient(to top, var(--guinda) 0%, rgba(123, 17, 19, 0.4) 100%);
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+}
+
+.hero-content { color: var(--crema); max-width: 800px; padding: 20px; }
+.tag-season { background: var(--dorado); color: var(--guinda); padding: 5px 10px; font-weight: 800; font-size: 0.8rem; letter-spacing: 2px; }
+.hero h1 { font-size: 3.5rem; margin: 20px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.hero-btns { margin-top: 30px; display: flex; gap: 15px; justify-content: center; }
+
+.btn-primary {
+    background: var(--guinda); border: 2px solid var(--guinda); color: var(--crema);
+    padding: 12px 30px; font-weight: 700; cursor: pointer; transition: 0.3s;
+}
+.btn-outline {
+    background: transparent; border: 2px solid var(--crema); color: var(--crema);
+    padding: 12px 30px; font-weight: 700; cursor: pointer; transition: 0.3s;
+}
+.btn-primary:hover { background: var(--dorado); border-color: var(--dorado); color: var(--guinda); }
+
+/* --- MATCH WIDGET --- */
+.match-widget {
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+.match-container {
+    background: var(--blanco);
+    border-top: 4px solid var(--dorado);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 8px;
+}
+.match-info { text-align: center; }
+.score-board .vs { font-size: 2rem; font-weight: 900; color: var(--guinda); }
+.match-info .league { display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 5px; }
+.team { display: flex; flex-direction: column; align-items: center; gap: 10px; font-weight: 700; }
+
+.team-logo, .rival-placeholder {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--guinda);
+}
+.rival-placeholder { background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #666; }
+
+/* --- SECCIONES GENÉRICAS --- */
+.section-pad { padding: 80px 5%; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.subtitle { color: var(--dorado); font-weight: 700; letter-spacing:2px; font-size: 1rem; }
+.section-header h2 { font-size: 2.5rem; color: var(--guinda); margin-top: 10px; }
+.line-gold { width: 60px; height: 3px; background: var(--dorado); margin: 15px auto; }
+
+/* --- FILTROS Y GRID JUGADORES --- */
+.filters-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
+.filter-btn {
+    background: transparent; border: 1px solid #ccc; padding: 8px 20px;
+    cursor: pointer; border-radius: 20px; font-weight: 600; transition: 0.3s;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--guinda); color: var(--crema); border-color: var(--guinda); }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* --- GRID DIRECTIVA MEJORADO (SIMÉTRICO) --- */
+.grid-directiva {
+    display: flex; /* Usamos Flexbox para centrado automático */
+    flex-wrap: wrap;
+    justify-content: center; /* ESTO CENTRA TODO SIMÉTRICAMENTE */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.director-card {
+    /* Ancho fijo para que se alineen bien */
+    width: 300px;
+    flex-grow: 0;
+
+    background: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.card-jugador {
+    background: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.card-jugador:hover, .director-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-color: var(--dorado);
+}
+
+.card-img {
+    width: 100%;
+    height: 320px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: top center;
+    border-bottom: 4px solid var(--guinda);
+}
+.card-info { padding: 20px; position: relative; }
+.dorsal {
+    position: absolute; top: -25px; right: 20px;
+    background: var(--dorado); color: var(--guinda);
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.2rem; border: 3px solid var(--blanco);
+}
+.card-info h3 { color: var(--guinda); margin-bottom: 5px; }
+.categoria { font-size: 0.8rem; color: #777; text-transform: uppercase; }
+
+/* --- HISTORIA --- */
+.history-section { background: var(--crema); padding: 80px 5%; }
+.history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.history-block h3 { color: var(--negro); margin-bottom: 5px; }
+.escudo-antiguo-container {
+    text-align: center;
+    border: 5px solid var(--dorado);
+    outline: 3px solid var(--guinda);
+    outline-offset: -8px;
+    padding: 30px;
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--crema);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    margin: 0 auto;
+}
+.img-antigua { max-width: 85%; max-height: 85%; object-fit: contain; filter: sepia(0.3); }
+.caption { display: block; margin-top: 15px; font-family: 'Cinzel', serif; color: var(--guinda); font-weight: 700; }
+
+/* --- SOCIOS ETERNOS --- */
+.eternos-section { background-color: var(--negro); padding: 80px 5%; text-align: center; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+.gallery-item { position: relative; height: 250px; border-radius: 8px; overflow: hidden; border: 2px solid var(--dorado); }
+.gallery-img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-caption { position: absolute; bottom: 0; background: rgba(123, 17, 19, 0.9); color: white; width: 100%; padding: 5px; text-align: center; }
+
+/* --- FOOTER ESTILO BARÇA --- */
+.footer-barca {
+    background-color: var(--azul-barca-bg);
+    color: white;
+    padding-top: 60px;
+    font-size: 0.9rem;
+}
+
+.footer-socials {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover { color: var(--dorado); transform: scale(1.1); }
+
+.footer-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer-column h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-column ul li { margin-bottom: 10px; }
+
+.footer-column ul li a {
+    color: var(--gris-footer);
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover { color: white; text-decoration: underline; }
+
+.footer-bottom {
+    background-color: black;
+    padding: 20px 5%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+}
+
+.footer-logo-area { display: flex; align-items: center; gap: 15px; }
+.footer-logo { height: 40px; width: 40px; border-radius: 50%; }
+.footer-text-brand { font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 2px; font-size: 1.2rem; }
+.footer-legal { color: var(--gris-footer); font-size: 0.8rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .history-grid, .match-container, .footer-bottom { flex-direction: column; text-align: center; gap: 20px; }
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+}
