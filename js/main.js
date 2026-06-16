@@ -49,61 +49,31 @@ const jugadores = [
    ---------------------------------------------------------------- */
 const directiva = [
     {
-        nombre: "Sr. Juan Pérez",
+        nombre: "Luis Casas Sulca",
         cargo: "Presidente",
-        inicio: 2024,
-        duracion: 4,
         img: null
+        // inicio: 2026, duracion: 2,  → agregar para mostrar la barra de gestión
         // img: "assets/dir1.jpg"
     },
     {
-        nombre: "Sra. María López",
+        nombre: "Teófilo Sánchez Sánchez",
         cargo: "Vicepresidente",
-        inicio: 2024,
-        duracion: 4,
         img: null
         // img: "assets/dir2.jpg"
     },
     {
-        nombre: "Sr. Carlos Ruiz",
+        nombre: "Darcy Gamarra",
         cargo: "Secretario",
-        inicio: 2025,
-        duracion: 2,
         img: null
         // img: "assets/dir3.jpg"
     },
     {
-        nombre: "Ing. Oscar Armas",
+        nombre: "Martín Correa Candela",
         cargo: "Tesorero",
-        inicio: 2023,
-        duracion: 4,
         img: null
         // img: "assets/dir4.jpg"
-    },
-    {
-        nombre: "Abog. Luis Lira",
-        cargo: "Fiscal",
-        inicio: 2024,
-        duracion: 2,
-        img: null
-        // img: "assets/dir5.jpg"
-    },
-    {
-        nombre: "Sra. Ana Sánchez",
-        cargo: "Primer Vocal",
-        inicio: 2025,
-        duracion: 2,
-        img: null
-        // img: "assets/dir6.jpg"
-    },
-    {
-        nombre: "Sr. Pedro M.",
-        cargo: "Segundo Vocal",
-        inicio: 2025,
-        duracion: 2,
-        img: null
-        // img: "assets/dir7.jpg"
     }
+    // Fiscal: pendiente de nombre
 ];
 
 
@@ -584,9 +554,6 @@ function cargarDirectiva() {
     const anioActual = new Date().getFullYear();
 
     contenedor.innerHTML = directiva.map(dir => {
-        const aniosEnCargo = Math.min(anioActual - dir.inicio, dir.duracion);
-        const porcentaje   = Math.round((aniosEnCargo / dir.duracion) * 100);
-
         const imgContent = dir.img
             ? `<div class="card-img" style="background-image:url('${dir.img}')" role="img" aria-label="Foto de ${dir.nombre}"></div>`
             : `<div class="card-img-placeholder">
@@ -594,16 +561,24 @@ function cargarDirectiva() {
                    <small>Foto pendiente</small>
                </div>`;
 
+        /* Barra de gestión solo si hay datos de inicio y duración */
+        let gestion = "";
+        if (dir.inicio && dir.duracion) {
+            const aniosEnCargo = Math.min(anioActual - dir.inicio, dir.duracion);
+            const porcentaje   = Math.round((aniosEnCargo / dir.duracion) * 100);
+            gestion = `
+                    <div class="gestion-bar-wrap">
+                        <div class="gestion-bar" data-width="${porcentaje}"></div>
+                    </div>
+                    <small class="gestion-label">Gestión: ${aniosEnCargo} de ${dir.duracion} años (${porcentaje}%)</small>`;
+        }
+
         return `
             <article class="director-card">
                 ${imgContent}
                 <div class="card-info" style="padding:16px 16px 20px">
                     <h3 style="font-size:.95rem;margin-top:8px;margin-right:0;text-align:center">${dir.nombre}</h3>
-                    <div style="text-align:center"><span class="cargo-badge">${dir.cargo}</span></div>
-                    <div class="gestion-bar-wrap">
-                        <div class="gestion-bar" data-width="${porcentaje}"></div>
-                    </div>
-                    <small class="gestion-label">Gestión: ${aniosEnCargo} de ${dir.duracion} años (${porcentaje}%)</small>
+                    <div style="text-align:center"><span class="cargo-badge">${dir.cargo}</span></div>${gestion}
                 </div>
             </article>`;
     }).join("");
