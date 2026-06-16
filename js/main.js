@@ -51,9 +51,8 @@ const directiva = [
     {
         nombre: "Luis Casas Sulca",
         cargo: "Presidente",
-        img: null
-        // inicio: 2026, duracion: 2,  → agregar para mostrar la barra de gestión
-        // img: "assets/dir1.jpg"
+        img: "assets/presidente.png",
+        foco: "center"   // centra el rostro dentro de la tarjeta
     },
     {
         nombre: "Teófilo Sánchez Sánchez",
@@ -73,7 +72,6 @@ const directiva = [
         img: null
         // img: "assets/dir4.jpg"
     }
-    // Fiscal: pendiente de nombre
 ];
 
 
@@ -555,7 +553,7 @@ function cargarDirectiva() {
 
     contenedor.innerHTML = directiva.map(dir => {
         const imgContent = dir.img
-            ? `<div class="card-img" style="background-image:url('${dir.img}')" role="img" aria-label="Foto de ${dir.nombre}"></div>`
+            ? `<div class="card-img" style="background-image:url('${dir.img}');background-position:${dir.foco || "top center"}" role="img" aria-label="Foto de ${dir.nombre}"></div>`
             : `<div class="card-img-placeholder">
                    <i class="fas fa-user-tie" aria-hidden="true"></i>
                    <small>Foto pendiente</small>
