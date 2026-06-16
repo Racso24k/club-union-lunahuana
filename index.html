@@ -3,190 +3,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDSC Unión | Lunahuaná</title>
+    <meta name="description" content="Club Deportivo Social y Cultural Unión – Lunahuaná. Fundado en 1937. 87 años de gloria, pasión y fútbol en el Valle del Cañete.">
+    <title>CDSC Unión | Lunahuaná — Desde 1937</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<nav class="navbar">
+<!-- ================================================================
+     NAVBAR
+     ================================================================ -->
+<nav class="navbar" id="navbar">
     <div class="logo-container">
-        <img src="assets/logo.jpg" alt="Escudo Unión" class="nav-logo">
+        <!--
+            IMAGEN LOGO NAVBAR
+            Ruta actual: assets/logo.jpg
+            → Reemplazá con el logo oficial que descargues de Facebook:
+              https://www.facebook.com/profile.php?id=61573693557569
+            Recomendado: formato cuadrado, mínimo 200×200px.
+        -->
+        <img src="assets/logo.jpg" alt="Escudo CDSC Unión Lunahuaná" class="nav-logo">
         <div class="brand-text">
             <span class="brand-name">C.D.S.C. UNIÓN</span>
-            <span class="since">DESDE 1937</span>
+            <span class="since">LUNAHUANÁ · DESDE 1937</span>
         </div>
     </div>
-    <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#plantilla">Equipo</a></li>
-        <li><a href="#galeria">Recuerdos</a></li>
-        <li><a href="#historia">Historia</a></li>
-        <li><a href="#directiva">Directiva</a></li>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+    </button>
+
+    <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#inicio"      class="nav-link">Inicio</a></li>
+        <li><a href="#plantilla"   class="nav-link">Equipo</a></li>
+        <li><a href="#galeria"     class="nav-link">Galería</a></li>
+        <li><a href="#historia"    class="nav-link">Historia</a></li>
+        <li><a href="#directiva"   class="nav-link">Directiva</a></li>
+        <li><a href="#sponsors"    class="nav-link">Sponsors</a></li>
+        <li><a href="#inscripcion" class="nav-link">Inscripción</a></li>
     </ul>
-    <a href="#donaciones" class="btn-nav">Hacerme Socio</a>
+
+    <a href="#inscripcion" class="btn-nav">Únete al Club</a>
 </nav>
 
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
 <header id="inicio" class="hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <span class="tag-season">FUNDADO EN 1937</span>
-            <h1>CLUB DEPORTIVO SOCIAL Y CULTURAL UNIÓN</h1>
-            <p>La historia viva de Lunahuaná. 87 años de gloria, pasión y fútbol.</p>
+            <span class="tag-season">⚽ TEMPORADA 2026</span>
+            <h1>CLUB DEPORTIVO<br>SOCIAL Y CULTURAL UNIÓN</h1>
+            <p>La historia viva de Lunahuaná. 87 años de gloria, pasión y fútbol en el Valle del Cañete.</p>
             <div class="hero-btns">
-                <button class="btn-primary">VER EQUIPO 2026</button>
-                <button class="btn-outline">NUESTRA HISTORIA</button>
+                <a href="#plantilla"   class="btn-primary">Ver Plantilla 2026</a>
+                <a href="#inscripcion" class="btn-outline">Hacerme Socio</a>
             </div>
         </div>
     </div>
 </header>
 
-<section class="match-widget">
+
+<!-- ================================================================
+     WIDGET PRÓXIMO PARTIDO
+     (oculto temporalmente — quitá el style="display:none" cuando
+      haya un próximo encuentro de la Liga Distrital que mostrar)
+     ================================================================ -->
+<section class="match-widget" aria-label="Próximo partido destacado" style="display:none">
     <div class="match-container">
         <div class="team home">
-            <img src="assets/logo.jpg" alt="U" class="team-logo">
+            <img src="assets/logo.jpg" alt="Escudo Unión" class="team-logo">
             <span>C.D.S.C. Unión</span>
         </div>
         <div class="match-info">
             <span class="league">LIGA DISTRITAL LUNAHUANÁ</span>
             <div class="score-board"><span class="vs">VS</span></div>
-            <span class="date"><i class="far fa-calendar-alt"></i> Dom 28 Feb - 3:30 PM</span>
+            <span class="match-date"><i class="far fa-calendar-alt"></i> Dom 28 Jun · 3:30 PM</span>
+            <span class="match-place"><i class="fas fa-map-marker-alt"></i> Campo Municipal Lunahuaná</span>
         </div>
         <div class="team away">
-            <div class="rival-placeholder"><i class="fas fa-shield-alt"></i></div>
+            <!--
+                ESCUDO DEL RIVAL
+                Cuando lo tengas, reemplazá este <div> por:
+                <img src="assets/rival-sport-anexo.jpg" alt="Sport Anexo" class="team-logo">
+            -->
+            <div class="rival-placeholder" aria-label="Escudo del rival pendiente">
+                <i class="fas fa-shield-halved"></i>
+            </div>
             <span>Sport Anexo</span>
         </div>
     </div>
 </section>
 
+
+<!-- ================================================================
+     PRÓXIMOS EVENTOS Y PARTIDOS
+     (oculto temporalmente — se activa cuando haya partidos)
+     ================================================================ -->
+<section id="eventos" class="section-pad bg-crema" style="display:none">
+    <div class="section-header">
+        <span class="subtitle">AGENDA OFICIAL</span>
+        <h2>Próximos Eventos y Partidos</h2>
+        <div class="line-magenta"></div>
+    </div>
+    <!-- Los eventos se inyectan desde main.js (array `eventos`) -->
+    <div class="eventos-grid" id="contenedor-eventos" role="list"></div>
+</section>
+
+
+<!-- ================================================================
+     PLANTILLA 2026
+     ================================================================ -->
 <section id="plantilla" class="section-pad">
     <div class="section-header">
         <span class="subtitle">ONCE GUERREROS</span>
-        <h2>PLANTILLA 2026</h2>
-        <div class="line-gold"></div>
+        <h2>Plantilla 2026</h2>
+        <div class="line-magenta"></div>
+        <p class="section-desc">Los hijos del Valle que defienden los colores del club con orgullo.</p>
     </div>
-    <div class="filters-container">
-        <button class="filter-btn active" onclick="filtrarJugadores('todos')">Todos</button>
-        <button class="filter-btn" onclick="filtrarJugadores('arquero')">Porteros</button>
-        <button class="filter-btn" onclick="filtrarJugadores('defensa')">Defensas</button>
-        <button class="filter-btn" onclick="filtrarJugadores('volante')">Volantes</button>
-        <button class="filter-btn" onclick="filtrarJugadores('delantero')">Delanteros</button>
+
+    <!-- Foto oficial del plantel 2026 -->
+    <div class="equipo-banner">
+        <img src="assets/Equipo Actual 2026.jpg"
+             alt="Equipo Oficial CDSC Unión – Temporada 2026"
+             loading="lazy">
+        <div class="equipo-banner-caption">⚽ Plantel Oficial · Temporada 2026 — Liga Distrital Lunahuaná</div>
     </div>
-    <div class="grid-container" id="contenedor-jugadores"></div>
+
+    <div class="filters-container" role="group" aria-label="Filtrar por posición">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="arquero">Porteros</button>
+        <button class="filter-btn" data-filter="defensa">Defensas</button>
+        <button class="filter-btn" data-filter="volante">Volantes</button>
+        <button class="filter-btn" data-filter="delantero">Delanteros</button>
+    </div>
+
+    <!--
+        FOTOS DE JUGADORES
+        Guardá cada foto con los nombres indicados en main.js (p1.jpg, p2.jpg, etc.)
+        en la carpeta assets/. Recomendado: formato vertical 400×500px.
+        Mientras no tengas la foto, se muestra un placeholder automáticamente.
+    -->
+    <div class="grid-jugadores" id="contenedor-jugadores"></div>
 </section>
 
-<section id="galeria" class="section-pad bg-dark" style="background-color: #111; color: white;">
+
+<!-- ================================================================
+     GALERÍA DINÁMICA  ← SECCIÓN NUEVA
+     ================================================================ -->
+<section id="galeria" class="section-pad bg-dark">
     <div class="section-header">
-        <span class="subtitle">NUESTRO LEGADO</span>
-        <h2 style="color: var(--dorado);">FOTOS DEL RECUERDO</h2>
-        <p style="color: #ccc">Equipos que hicieron historia en cancha de tierra y grass.</p>
+        <span class="subtitle" style="color:var(--magenta-light)">NUESTRO LEGADO VISUAL</span>
+        <h2 style="color:var(--dorado)">Galería del Club</h2>
+        <div class="line-gold"></div>
+        <p style="color:#ccc;margin-top:12px;font-size:.92rem">
+            Imágenes del equipo, del Valle y de la historia que nos une.
+        </p>
     </div>
-    <div class="grid-container" id="contenedor-galeria"></div>
+
+    <div class="gallery-filter-tabs" role="group" aria-label="Filtrar galería">
+        <button class="gallery-tab active" data-cat="todos">Todas</button>
+        <button class="gallery-tab" data-cat="equipo">Equipo</button>
+        <button class="gallery-tab" data-cat="historia">Historia</button>
+        <button class="gallery-tab" data-cat="social">Social</button>
+    </div>
+
+    <div class="galeria-grid" id="contenedor-galeria"></div>
+
+    <div class="gallery-load-more">
+        <button class="btn-outline-light" id="btn-ver-mas">
+            Ver más fotos <i class="fas fa-images"></i>
+        </button>
+    </div>
 </section>
 
+
+<!-- ================================================================
+     LIGHTBOX (modal de imágenes)  ← COMPONENTE NUEVO
+     ================================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar visor">
+        <i class="fas fa-times"></i>
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="lightbox-content">
+        <img src="" alt="" id="lightbox-img">
+        <p id="lightbox-caption"></p>
+        <small id="lightbox-counter"></small>
+    </div>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Imagen siguiente">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+
+
+<!-- ================================================================
+     HISTORIA
+     ================================================================ -->
 <section id="historia" class="history-section">
     <div class="history-grid">
         <div class="history-content">
             <span class="subtitle">NUESTRAS RAÍCES</span>
-            <h2>87 AÑOS DE GLORIA Y TRADICIÓN</h2>
-            <div class="line-gold" style="margin: 0 0 30px 0;"></div>
+            <h2>87 Años de Gloria y Tradición</h2>
+            <div class="line-magenta" style="margin:15px 0 30px;"></div>
+
             <div class="history-block">
-                <h3><i class="fas fa-certificate" style="color:var(--dorado)"></i> La Fundación (1937)</h3>
-                <p>Nacido en 1937 en el corazón de Lunahuaná. Un grupo de vecinos visionarios decidió crear una institución que no solo fomentara el deporte, sino que uniera a la comunidad.</p>
+                <div class="history-icon"><i class="fas fa-certificate"></i></div>
+                <div>
+                    <h3>La Fundación (1937)</h3>
+                    <p>Nacido en el corazón de Lunahuaná, un grupo de vecinos visionarios creó una institución que no solo fomentara el deporte, sino que uniera a toda la comunidad del valle.</p>
+                </div>
             </div>
-            <div class="history-block" style="margin-top: 25px;">
-                <h3><i class="fas fa-church" style="color:var(--dorado)"></i> Bajo el Manto de la Patrona</h3>
-                <p>La identidad de la 'U' es inseparable de nuestra fe. Desde nuestros inicios, el club se encomendó a <strong>Santa Rosa de Lima</strong>, nuestra guía espiritual.</p>
+
+            <div class="history-block">
+                <div class="history-icon"><i class="fas fa-church"></i></div>
+                <div>
+                    <h3>Bajo el Manto de la Patrona</h3>
+                    <p>La identidad de la 'U' es inseparable de nuestra fe. Desde nuestros inicios, el club se encomendó a <strong>Santa Rosa de Lima</strong>, patrona del Perú y guía espiritual del club.</p>
+                </div>
             </div>
-            <div class="history-block" style="margin-top: 25px;">
-                <h3><i class="fas fa-futbol" style="color:var(--dorado)"></i> El Presente</h3>
-                <p>Hoy, el C.D.S.C. Unión sigue siendo protagonista de la Liga Distrital, honrando el legado de quienes forjaron nuestra historia en canchas de tierra.</p>
+
+            <div class="history-block">
+                <div class="history-icon"><i class="fas fa-futbol"></i></div>
+                <div>
+                    <h3>El Presente (2026)</h3>
+                    <p>Hoy el C.D.S.C. Unión sigue siendo protagonista de la Liga Distrital, honrando el legado de quienes forjaron nuestra historia en canchas de tierra y grass.</p>
+                </div>
             </div>
         </div>
+
         <div class="history-img">
+            <!--
+                IMAGEN ESCUDO HISTÓRICO
+                Ruta actual: assets/escudo-antiguo.png  ← ya existe en tu proyecto
+                Si tenés el escudo original fundacional de mayor resolución,
+                reemplazá el archivo manteniendo el mismo nombre.
+            -->
             <div class="escudo-antiguo-container">
-                <img src="assets/escudo-antiguo.png" alt="Escudo 1937" class="img-antigua">
-                <span class="caption">Escudo Fundacional 1937</span>
+                <img src="assets/escudo-antiguo.png" alt="Escudo fundacional CDSC Unión 1937" class="img-antigua">
+                <span class="caption">Escudo Fundacional · 1937</span>
             </div>
         </div>
     </div>
 </section>
 
+
+<!-- ================================================================
+     FORMULARIO DE INSCRIPCIÓN  ← SECCIÓN NUEVA
+     ================================================================ -->
+<section id="inscripcion" class="section-pad bg-magenta-soft">
+    <div class="section-header">
+        <span class="subtitle">ÚNETE A LA FAMILIA</span>
+        <h2>Formulario de Inscripción</h2>
+        <div class="line-magenta"></div>
+        <p class="section-desc">
+            Completá el formulario y un dirigente del club te contactará en menos de 48 horas.
+        </p>
+    </div>
+
+    <div class="form-wrapper">
+        <form id="form-inscripcion" class="form-inscripcion" novalidate>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo <span class="req">*</span></label>
+                    <input type="text" id="nombre" name="nombre"
+                           placeholder="Ej: Juan Pérez García"
+                           required minlength="3" autocomplete="name">
+                    <span class="form-error" id="error-nombre" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="dni">DNI <span class="req">*</span></label>
+                    <input type="text" id="dni" name="dni"
+                           placeholder="12345678"
+                           required pattern="\d{8}" maxlength="8"
+                           inputmode="numeric">
+                    <span class="form-error" id="error-dni" role="alert"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nacimiento">Fecha de nacimiento <span class="req">*</span></label>
+                    <input type="date" id="nacimiento" name="nacimiento" required>
+                    <span class="form-error" id="error-nacimiento" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono <span class="req">*</span></label>
+                    <input type="tel" id="telefono" name="telefono"
+                           placeholder="987654321"
+                           required pattern="\d{9}" maxlength="9"
+                           inputmode="numeric" autocomplete="tel">
+                    <span class="form-error" id="error-telefono" role="alert"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="tucorreo@gmail.com"
+                           autocomplete="email">
+                    <span class="form-error" id="error-email" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoría <span class="req">*</span></label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="" disabled selected>Seleccioná tu categoría</option>
+                        <option value="primera">Primera División</option>
+                        <option value="master">Categoría Máster (+35 años)</option>
+                        <option value="sub18">Sub-18</option>
+                        <option value="sub15">Sub-15</option>
+                        <option value="sub12">Sub-12</option>
+                        <option value="femenino">Fútbol Femenino</option>
+                        <option value="socio">Solo Socio (sin jugar)</option>
+                    </select>
+                    <span class="form-error" id="error-categoria" role="alert"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="posicion">Posición preferida</label>
+                    <select id="posicion" name="posicion">
+                        <option value="" disabled selected>Tu posición en cancha</option>
+                        <option value="portero">Portero</option>
+                        <option value="defensa">Defensa</option>
+                        <option value="volante">Volante / Mediocampista</option>
+                        <option value="delantero">Delantero</option>
+                        <option value="ns">No sé / Donde me pongan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje adicional</label>
+                    <textarea id="mensaje" name="mensaje" rows="2"
+                              placeholder="¿Algo que quieras contarnos?"></textarea>
+                </div>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">
+                    Acepto que mis datos sean utilizados únicamente para gestionar
+                    mi inscripción al club. <span class="req">*</span>
+                </label>
+            </div>
+            <span class="form-error" id="error-terminos" role="alert"></span>
+
+            <div class="form-submit-area">
+                <button type="submit" class="btn-submit" id="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Enviar Solicitud
+                </button>
+            </div>
+        </form>
+
+        <div class="form-success" id="form-success" hidden>
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3>¡Solicitud enviada con éxito!</h3>
+            <p>
+                Recibimos tu inscripción. Un dirigente del club te contactará
+                en las próximas 48 horas al número <strong id="success-telefono"></strong>.
+            </p>
+            <p style="margin-top:12px;font-size:.88rem;color:#666">
+                Seguinos en Facebook para estar al día con todas las novedades del club.
+            </p>
+            <a href="https://www.facebook.com/profile.php?id=61573693557569"
+               target="_blank" rel="noopener noreferrer" class="btn-facebook">
+                <i class="fab fa-facebook-f"></i> Seguir en Facebook
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     DIRECTIVA
+     ================================================================ -->
 <section id="directiva" class="section-pad bg-crema">
     <div class="section-header">
-        <h2>JUNTA DIRECTIVA 2026</h2>
-        <p>Liderazgo y compromiso para seguir creciendo.</p>
+        <span class="subtitle">CONDUCCIÓN INSTITUCIONAL</span>
+        <h2>Junta Directiva 2026</h2>
+        <div class="line-magenta"></div>
+        <p class="section-desc">Liderazgo y compromiso para seguir construyendo la historia del club.</p>
     </div>
+    <!--
+        FOTOS DE LA DIRECTIVA
+        Guardá las fotos como assets/dir1.jpg, dir2.jpg, etc.
+        Descargalas desde el Facebook del club o pedíselas a cada dirigente.
+        Mientras no existan, se muestra un avatar placeholder automáticamente.
+    -->
     <div class="grid-directiva" id="contenedor-directiva"></div>
 </section>
 
-<footer class="footer-barca" id="donaciones">
 
-    <div class="footer-socials">
-        <h3>Sigue a la 'U' en redes</h3>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+<!-- ================================================================
+     SPONSORS / AUSPICIADORES
+     ================================================================ -->
+<section id="sponsors" class="section-pad sponsors-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Nuestros Auspiciadores</h2>
+            <p class="section-sub">Empresas que hacen posible el deporte en Lunahuaná</p>
         </div>
+        <div class="sponsors-grid" id="contenedor-sponsors"></div>
     </div>
+</section>
 
-    <div class="footer-links-container">
-        <div class="footer-column">
-            <h4>El Club</h4>
-            <ul>
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="#directiva">Directiva</a></li>
-                <li><a href="#">Estatutos</a></li>
-                <li><a href="#">Transparencia</a></li>
-            </ul>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="footer" id="contacto">
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            <img src="assets/logo.jpg" alt="CDSC Unión Lunahuaná" class="footer-logo">
+            <span class="footer-brand-name">C.D.S.C. UNIÓN</span>
+            <p class="footer-tagline">
+                Lunahuaná, Valle del Cañete · Lima<br>
+                Fundado el 30 de Agosto de 1937
+            </p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61573693557569"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Facebook oficial del club">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" aria-label="Instagram (próximamente)">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="TikTok (próximamente)">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" aria-label="WhatsApp del club">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
-        <div class="footer-column">
-            <h4>Equipos</h4>
-            <ul>
-                <li><a href="#plantilla">Primera División</a></li>
-                <li><a href="#">Categoría Máster</a></li>
-                <li><a href="#">Menores</a></li>
-                <li><a href="#">Fútbol Femenino</a></li>
-            </ul>
+
+        <div class="footer-links-grid">
+            <div class="footer-column">
+                <h4>El Club</h4>
+                <ul>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#directiva">Directiva</a></li>
+                    <li><a href="#">Estatutos</a></li>
+                    <li><a href="#">Transparencia</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Equipos</h4>
+                <ul>
+                    <li><a href="#plantilla">Primera División</a></li>
+                    <li><a href="#">Categoría Máster</a></li>
+                    <li><a href="#">Sub-18 / Sub-15</a></li>
+                    <li><a href="#">Fútbol Femenino</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="#inscripcion">Hacerme Socio</a></li>
+                    <li><a href="#">Tienda Oficial (pronto)</a></li>
+                    <li><a href="#galeria">Galería Histórica</a></li>
+                    <li><a href="#eventos">Próximos Eventos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-map-marker-alt"></i> Lunahuaná, Cañete – Lima
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=61573693557569"
+                           target="_blank" rel="noopener">
+                            <i class="fab fa-facebook-f"></i> Facebook Oficial
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#inscripcion">
+                            <i class="fas fa-envelope"></i> Formulario de Contacto
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-column">
-            <h4>Socios y Fans</h4>
-            <ul>
-                <li><a href="#donaciones">Hazte Socio</a></li>
-                <li><a href="#">Tienda Oficial (Pronto)</a></li>
-                <li><a href="#galeria">Galería Histórica</a></li>
-                <li><a href="#">Noticias</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h4>Contacto</h4>
-            <ul>
-                <li><a href="#">Lunahuaná, Cañete</a></li>
-                <li><a href="#">contacto@clubunion.com</a></li>
-                <li><a href="#">Trabaja con nosotros</a></li>
-            </ul>
-        </div>
+
     </div>
 
     <div class="footer-bottom">
-        <div class="footer-logo-area">
-            <img src="assets/logo.jpg" alt="Logo" class="footer-logo">
-            <span class="footer-text-brand">C.D.S.C. UNIÓN</span>
-        </div>
-        <div class="footer-legal">
-            <p>© Copyright CDSC Unión 2026 | Desarrollado por Racso24k </p>
-            <p style="margin-top: 5px;">
-                <a href="#" style="color: #777;">Privacidad</a> |
-                <a href="#" style="color: #777;">Cookies</a>
-            </p>
-        </div>
+        <p>© 2026 C.D.S.C. Unión · Lunahuaná. Todos los derechos reservados.</p>
+        <p>Realizado por <a href="TU_LINK_DE_PORTAFOLIO_AQUÍ" target="_blank" rel="noopener noreferrer" class="footer-dev-link">Racso</a></p>
     </div>
 </footer>
+
+
+<!-- Botón volver arriba -->
+<button class="back-to-top" id="back-to-top" aria-label="Volver al inicio">
+    <i class="fas fa-chevron-up"></i>
+</button>
 
 <script src="js/main.js"></script>
 </body>
