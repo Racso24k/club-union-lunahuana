@@ -708,7 +708,7 @@ function clearAllErrors(form) {
     form.querySelectorAll(".form-error").forEach(el => el.textContent = "");
 }
 
-const WHATSAPP_NUMERO = "51940731260"; // ← cambiá por el número real del club cuando esté listo
+const WHATSAPP_NUMERO = "51960903733"; // 51 = código de Perú + 960903733
 
 function enviarFormulario(telefono) {
     const btn = document.getElementById("btn-submit");
